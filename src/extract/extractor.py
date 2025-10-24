@@ -18,7 +18,7 @@ def save_raw_data(data: list, dataset_name: str):
     logging.info(f"Extraction completed: {file_path}")
     return file_path
 
-def extract_all():
+def extract_raw_data():
     logging.info("=== Starting Bronze extraction ===")
 
     datasets = ["deliveries", "vehicles", "carriers", "warehouses"]

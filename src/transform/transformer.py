@@ -72,7 +72,7 @@ def validate_foreign_keys(df: pd.DataFrame, df_dict: dict, ds_name: str):
 
     return valid, anomalies
 
-def transform_all():
+def transform_data():
     logging.info("=== Starting Silver transformation ===")
 
     datasets = {

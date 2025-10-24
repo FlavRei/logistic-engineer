@@ -15,6 +15,10 @@ def clean_deliveries(df: pd.DataFrame) -> pd.DataFrame:
     df["distance_km"] = pd.to_numeric(df["distance_km"], errors="coerce")
     df["delay_days"] = pd.to_numeric(df["delay_days"], errors="coerce")
     df["status"] = df["status"].astype(str).str.replace("_", " ").str.strip().str.title()
+    df["departure_time"] = pd.to_datetime(df["departure_time"], errors="coerce")
+    df["arrival_time"] = pd.to_datetime(df["arrival_time"], errors="coerce")
+    df["departure_time"] = df["departure_time"].dt.strftime("%Y-%m-%dT%H:%M:%S.%f")
+    df["arrival_time"] = df["arrival_time"].dt.strftime("%Y-%m-%dT%H:%M:%S.%f")
 
     # Valeurs manquantes
     df["id"] = df["id"].fillna(pd.util.hash_pandas_object(df).astype(str))
